@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sing-up-form/static/css/main.7acaea2f.css",
-    "main.js": "/sing-up-form/static/js/main.c1d52d32.js",
-    "index.html": "/sing-up-form/index.html",
-    "main.7acaea2f.css.map": "/sing-up-form/static/css/main.7acaea2f.css.map",
-    "main.c1d52d32.js.map": "/sing-up-form/static/js/main.c1d52d32.js.map"
+    "main.css": "/hooks-theory/static/css/main.7acaea2f.css",
+    "main.js": "/hooks-theory/static/js/main.f3b45426.js",
+    "index.html": "/hooks-theory/index.html",
+    "main.7acaea2f.css.map": "/hooks-theory/static/css/main.7acaea2f.css.map",
+    "main.f3b45426.js.map": "/hooks-theory/static/js/main.f3b45426.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.c1d52d32.js"
+    "static/js/main.f3b45426.js"
   ]
 }
