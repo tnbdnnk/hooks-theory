@@ -1,5 +1,6 @@
 import {SingUpForm} from './SingUpForm/SingUpForm';
-import {Clock} from './Clock/Clock'
+import {Clock} from './Clock/Clock';
+import {SkipEffectOnFirstRender} from './SkipEffectOnFirstRender/SkipEffectOnFirstRender';
 
 export const App = () => {
     return (
@@ -7,6 +8,8 @@ export const App = () => {
             <SingUpForm/>
 
             <Clock/>
+
+            <SkipEffectOnFirstRender/>
         </div>
     );
 };
