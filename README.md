@@ -64,3 +64,6 @@ ADD: return () => clearInterval(intervalId.current);
         this.stop();
     }
 а з хуку useEffect можна поверати функцію, очищаюча функція return () => clearInterval(intervalId.current); 
+
+# Skip effect on first render
+

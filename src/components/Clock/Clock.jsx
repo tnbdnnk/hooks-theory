@@ -11,12 +11,13 @@ export function Clock() {
         }, 1000);
         
         return () => {
-            console.log('This clearing function before next call to useEffect')
-        }
-        // return () => clearInterval(intervalId.current);
+            console.log('This clearing function before next call to useEffect: ' + clearInterval(intervalId.current));
+            stop();
+        };
     }, []);
 
     const stop = () => {
+        // console.log('Press stop.')
         clearInterval(intervalId.current);
     }
 
@@ -28,6 +29,9 @@ export function Clock() {
             <button type="button" onClick={stop}>
                 Stop the clock!
             </button>
+            {/* <button type='button' onClick={() => setTime(new Date())}>
+                Restart the clock.
+            </button> */}
         </div>
     )
 }
