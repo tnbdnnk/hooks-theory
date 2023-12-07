@@ -3,7 +3,7 @@
 - при перезавантаженні сторінки дані мають зберігатись на тому ж місці;
 
 # Clock
-Робота з рефами
+Робота з useRef.
 
 Маємо: клас, який зберігає:
 - стан state,
@@ -76,3 +76,34 @@ ADD: return () => clearInterval(intervalId.current);
 
 - тому імпортуємо реф з реакту і створюємо const isFirstRender = useRef(true); - це перший рендер. isFirstRender - це об'єкт, у якого у валстивості count буде значення true, яким буде ініціалізуватися
 Стандартний варіант ігнорування першого рендеру - виконання перевірки через if.
+
+# Counter.
+
+Counter with useReducer.
+
+useReducer - це спеціальний хук, який також створений для керування станом, але складніший. Мщжна використовувати, до прикладу, в http запитах, щоб в одному місці(об'єкті) зберігати одразу і данні і помилку, тобто, щоб не робити три useState, а зробити useReducer і зберігати об'єкт.
+
+const [state, dispatch] = useReducer(reducer, initialState, init)
+- повертає стан state, який там зберігається, це може бути об'єкт, масив
+- reducer - просто функція
+- initialState - початковий стан
+- init
+
+prevState - актуальне значення Counter
+nextState - це 1 чи щось інше, що буде передаватися в setCount()
+
+Під час виклику setCount() викликається countReducer(prevState, nextState) під капотом і повертає нове значення state(тобто count) та перерендерується Counter(). Тепер все працює, але значення не зменшується, тому що на кожну операцію число збільшується на те значення, яке передали в рендері в setCount(1) - тому вносимо зміни в setCount(1) -> setCount({ type: 'increase' (або 'decrease'), payload: 1 }), тобто замість того, щоб передавати в setCount() примітивне значення, передаємо об'єкт, в якому вказуємо тип операції, яку потрібно зробити і значення для виконання операції. 
+{ type: 'increase' (або 'decrease'), payload: 1 } - об'єкт, який переходить в nextState, але це вже буде не стан, а дія action. prevState -> state - актуальний стан. 
+
+! В useReducer() правильно використовувати dispatch замість використаного setCount. При використанні useReducer() деструктурується функція dispatch в локальну змінну з ім'ям dispatch. dispatch - це диспечер, який відправляє данні, до прикладу в countReducer(). countReducer() отримує ці данні (дію) і виконує завдання. Замість default: return state; краще використовувати default: throw new Error(`Unsupported action type ${action.type}`); якщо ніяка з дій не підтримується заданим запитам. 
+
+Підсумок: useReducer() - це функція, яка отримує автоматично під капотом актуальний попередній стан state/prevState в момент його виклику, і дію action, тобто, що з цим станом потрібно зробити. Дія action обов'язково має властивість type і payload. Стан може бути не примітивним, це може бути об'єкт, тому: const [state, dispatch] = useReducer(countReducer, { count: 0 }) , function countReducer(state, action) {
+    switch(action.type) {
+        case 'increment':
+            <!-- return state + action.payload; -->
+            return {...state, count: state.count + action.payload};
+        case 'decrement':
+            return {...state, count: state.count - action.payload};
+        default: throw new Error(`Unsupported action type ${action.type}`);
+    }
+} - беремо новий state, розпилюємо туди старий ...state, тому що в об'єкті можуть бути різні дані/властивості, потім властивість count: state.count + action.payload
