@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/hooks-theory/static/css/main.7acaea2f.css",
-    "main.js": "/hooks-theory/static/js/main.539502bc.js",
+    "main.js": "/hooks-theory/static/js/main.2f16d52f.js",
     "index.html": "/hooks-theory/index.html",
     "main.7acaea2f.css.map": "/hooks-theory/static/css/main.7acaea2f.css.map",
-    "main.539502bc.js.map": "/hooks-theory/static/js/main.539502bc.js.map"
+    "main.2f16d52f.js.map": "/hooks-theory/static/js/main.2f16d52f.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.539502bc.js"
+    "static/js/main.2f16d52f.js"
   ]
 }
