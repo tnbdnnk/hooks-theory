@@ -23,6 +23,7 @@ export function Clock() {
 
     return (
         <div>
+            <hr />
             <p>
                 Current time: {time.toLocaleTimeString()}
             </p>

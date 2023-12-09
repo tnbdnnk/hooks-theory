@@ -17,6 +17,7 @@ export function Counter() {
 
     return (
         <div>
+            <hr />
             <p>{count}</p>
             <button
                 type="button" 

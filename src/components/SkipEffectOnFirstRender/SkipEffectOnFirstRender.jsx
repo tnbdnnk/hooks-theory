@@ -17,6 +17,7 @@ export function SkipEffectOnFirstRender() {
 
     return (
         <div>
+            <hr />
             <button onClick={() => setCount(c => c + 1)}>{count}</button>
             <p>
                 <code>
